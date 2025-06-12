@@ -1,0 +1,3 @@
+INSERT INTO blog_post (id, title, content, timestamp) VALUES (1, 'First Blog Post', 'This is the content of the first blog post.', CURRENT_TIMESTAMP);
+INSERT INTO blog_post (id, title, content, timestamp) VALUES (2, 'Second Blog Post', 'This is the content of the second blog post.', CURRENT_TIMESTAMP);
+INSERT INTO blog_post (id, title, content, timestamp) VALUES (3, 'Third Blog Post', 'This is the content of the third blog post.', CURRENT_TIMESTAMP);
