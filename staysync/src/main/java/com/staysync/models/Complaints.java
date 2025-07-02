@@ -40,7 +40,7 @@ public class Complaints {
 
     @ManyToOne
     @JoinColumn(name = "pg_id")
-    private PgDetails pgDetail;
+    private PgDetails pgDetails;
 
 
     

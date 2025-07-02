@@ -69,9 +69,9 @@ public class PgDetailServiceImpl implements PgDetailService {
     // }
 
     @Override
-    public List<PgDetailsDto> filterPgDetails(String location, String amenities, String priceRange) {
-        // Implement filtering logic based on location, amenities, and price range
-        List<PgDetails> filteredPgDetails = pgDetailsRepository.findByLocationAndAmenitiesAndPriceRange(location, amenities, priceRange);
+    public List<PgDetailsDto> filterPgDetails(String location, String amenities, Integer rent) {
+        // Implement filtering logic based on location, amenities, and rent
+        List<PgDetails> filteredPgDetails = pgDetailsRepository.findByLocationAndAmenitiesAndRent(location, amenities,rent);
         return pgDetailsMapper.toDtoList(filteredPgDetails);
     }
 

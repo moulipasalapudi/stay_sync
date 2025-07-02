@@ -18,6 +18,6 @@ public interface PgDetailService {
 
     // List<PgDetailsDto> searchPgDetails(String query);
 
-    List<PgDetailsDto> filterPgDetails(String location, String amenities, String priceRange);
+    List<PgDetailsDto> filterPgDetails(String location, String amenities, Integer rent);
     
 }

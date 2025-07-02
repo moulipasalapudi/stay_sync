@@ -28,7 +28,7 @@ public class Room {
     private String amenities;
     @ManyToOne
     @JoinColumn(name = "pg_id")
-    private PgDetails pgDetail;
+    private PgDetails pgDetails;
 
 
     

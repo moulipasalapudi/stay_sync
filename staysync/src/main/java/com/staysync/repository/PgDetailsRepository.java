@@ -8,6 +8,6 @@ import com.staysync.models.PgDetails;
 
 public interface PgDetailsRepository extends JpaRepository<PgDetails, Long> {
 
-    List<PgDetails> findByLocationAndAmenitiesAndPriceRange(String location, String amenities, String priceRange);
+    List<PgDetails> findByLocationAndAmenitiesAndRent(String location, String amenities, Integer rent);
 
 }
