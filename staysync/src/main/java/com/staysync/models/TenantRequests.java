@@ -2,6 +2,7 @@ package com.staysync.models;
 
 import java.time.LocalDate;
 
+import com.staysync.models.Enums.RequestStatus;
 import com.staysync.models.Enums.TenantStatus;
 
 import jakarta.persistence.Entity;
@@ -27,9 +28,9 @@ public class TenantRequests {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
-    private LocalDate requesDate;
+    private LocalDate requestDate;
     @Enumerated(EnumType.STRING)
-    private TenantStatus status;
+    private RequestStatus status;
     @ManyToOne
     @JoinColumn(name = "potential_tenant_id")
     private Users potentialTenant;

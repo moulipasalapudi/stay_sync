@@ -9,6 +9,8 @@ import com.staysync.dtos.PgDetailsDto;
 import com.staysync.mapper.PgDetailsMapper;
 import com.staysync.models.PgDetails;
 import com.staysync.repository.PgDetailsRepository;
+import com.staysync.repository.UserRepository;
+import com.staysync.models.Users;
 
 @Service
 public class PgDetailServiceImpl implements PgDetailService {
@@ -18,10 +20,21 @@ public class PgDetailServiceImpl implements PgDetailService {
     @Autowired
     private PgDetailsMapper pgDetailsMapper;
 
+    @Autowired
+    private UserRepository userRepository;
+
     // Implement the methods defined in PgDetailService interface
     @Override
     public void savePgDetails(PgDetailsDto pgDetailDto) {
         PgDetails pgDetails = pgDetailsMapper.toEntity(pgDetailDto);
+        if (pgDetailDto.getOwnerId() != null) {
+            System.out.println("Values..."+userRepository.findAll());
+            Users owner = userRepository.findById(pgDetailDto.getOwnerId())
+                .orElseThrow(() -> new RuntimeException("Owner not found"));
+            pgDetails.setOwner(owner);
+        } else {
+            throw new RuntimeException("OwnerId is required");
+        }
         pgDetailsRepository.save(pgDetails);
 
     }
