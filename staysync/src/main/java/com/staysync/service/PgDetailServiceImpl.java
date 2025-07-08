@@ -23,20 +23,17 @@ public class PgDetailServiceImpl implements PgDetailService {
     @Autowired
     private UserRepository userRepository;
 
-    // Implement the methods defined in PgDetailService interface
     @Override
-    public void savePgDetails(PgDetailsDto pgDetailDto) {
-        PgDetails pgDetails = pgDetailsMapper.toEntity(pgDetailDto);
-        if (pgDetailDto.getOwnerId() != null) {
-            System.out.println("Values..."+userRepository.findAll());
-            Users owner = userRepository.findById(pgDetailDto.getOwnerId())
+    public void savePgDetails(PgDetailsDto pgDetailsDto) {
+        PgDetails pgDetails = pgDetailsMapper.toEntity(pgDetailsDto);
+        if (pgDetailsDto.getOwnerId() != null) {
+            Users owner = userRepository.findById(pgDetailsDto.getOwnerId())
                 .orElseThrow(() -> new RuntimeException("Owner not found"));
             pgDetails.setOwner(owner);
         } else {
-            throw new RuntimeException("OwnerId is required");
+            throw new RuntimeException("OwnerId must not be null");
         }
         pgDetailsRepository.save(pgDetails);
-
     }
 
     @Override
