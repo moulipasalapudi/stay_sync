@@ -13,7 +13,7 @@ public interface PgDetailsMapper {
     @Mapping(source = "owner.id", target = "ownerId")
     PgDetailsDto toDto(PgDetails entity);
 
-    @Mapping(source = "ownerId", target = "owner.id")
+    // Remove mapping for owner in toEntity, set owner manually in service
     PgDetails toEntity(PgDetailsDto dto);
 
     List<PgDetailsDto> toDtoList(List<PgDetails> entities);
