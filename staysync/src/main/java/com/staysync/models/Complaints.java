@@ -1,3 +1,4 @@
+/* 
 package com.staysync.models;
 
 import java.time.LocalDate;
@@ -44,4 +45,40 @@ public class Complaints {
 
 
     
+}
+    */
+package com.staysync.models;
+
+import java.time.LocalDate;
+import com.staysync.models.Enums.ComplaintStatus;
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class Complaints {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @ManyToOne
+    @JoinColumn(name = "tenant_id")
+    private Tenant tenant;
+
+    @ManyToOne
+    @JoinColumn(name = "pg_id")
+    private PgDetails pgDetails;
+
+    @Column(columnDefinition = "TEXT")
+    private String content;
+
+    @Enumerated(EnumType.STRING)
+    private ComplaintStatus status;
+
+    private String attachments;
+    private LocalDate createdAt;
+    private LocalDate updatedAt;
 }
