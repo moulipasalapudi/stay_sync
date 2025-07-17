@@ -3,6 +3,7 @@ package com.staysync.models;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.staysync.models.Enums.TenantStatus;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -23,7 +24,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-
 public class Tenant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,3 +1,4 @@
+/* 
 package com.staysync.dtos;
 
 import java.time.LocalDate;
@@ -23,4 +24,25 @@ public class ComplaintDto {
     private LocalDate createdAt;
     private LocalDate updatedAt;
     
+}
+*/
+package com.staysync.dtos;
+
+import java.time.LocalDate;
+import com.staysync.models.Enums.ComplaintStatus;
+import lombok.*;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class ComplaintDto {
+    private Integer id;
+    private Long tenantId;
+    private Long pgId;
+    private String content;
+    private ComplaintStatus status;
+    private String attachments;
+    private LocalDate createdAt;
+    private LocalDate updatedAt;
 }
